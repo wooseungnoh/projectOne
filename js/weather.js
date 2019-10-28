@@ -12,9 +12,11 @@ function getWeather(let, lng){
 		const tempMin = json.main.temp_min;
 		const tempMax = json.main.temp_max;
 		const place = json.name;
-		weatherPlace.innerText = `${place} /`;
-		weatherMaxtemp.innerText = `${tempMax}º`;
-		weatherMintemp.innerText = `${tempMin}º`;
+        	const weathervalue = json.weather[0].main;
+		weatherPlace.innerText = place+" "+"/";
+		weatherMain.innerText = weathervalue+" "+"/";
+		weatherMaxtemp.innerText = tempMax+"º";
+		weatherMintemp.innerText = tempMin+"º";
 	});
 }
 
