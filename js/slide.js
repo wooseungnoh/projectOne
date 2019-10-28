@@ -23,7 +23,6 @@ var slideContainer = document.getElementsByClassName('clock_todo'),
 	bodysec.addEventListener('wheel', function(e){
 		diff = e.deltaY;
 		wheelValue += diff;
-		console.log(wheelValue)
 		if(wheelValue > 700 && wheelValue < 1000){
 			goToslide(1);
 		}else if(wheelValue < 600){
