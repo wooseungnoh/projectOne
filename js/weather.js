@@ -1,6 +1,7 @@
 const weatherPlace= document.querySelector(".js-weather-place");
 const weatherMaxtemp= document.querySelector(".js-weather-maxtemp");
 const weatherMintemp= document.querySelector(".js-weather-mintemp");
+const weatherMain= document.querySelector(".js-weather-main");
 const API_KEY = "9d2dc547abdd90969255612b5761cc82";
 const COORDS = 'coords';
 
