@@ -6,7 +6,7 @@ const COORDS = 'coords';
 
 
 function getWeather(let, lng){
-	fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${let}&lon=${lng}&appid=${API_KEY}&units=metric`).then(function(response){
+	fetch("https://api.openweathermap.org/data/2.5/weather?lat="+let+"&lon="+lng+"&appid="+API_KEY+"&units=metric").then(function(response){
 		return response.json()	
 	}).then(function(json){
 		const tempMin = json.main.temp_min;
