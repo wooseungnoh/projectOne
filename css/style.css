@@ -229,6 +229,14 @@ background-size:65px; background-position:-2.5px -1px}
 
 @media (min-width: 320px) and (max-width: 480px) {
 
+body{
+	background:url('../img/mainBg.jpg') no-repeat;
+    	background-size:200% 100%;
+	position:fixed;
+}
+	
+	
+	
 .clockbox > h2{
 	margin: 90px auto;
 	font-size: 60px;
