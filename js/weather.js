@@ -9,7 +9,6 @@ function getWeather(let, lng){
 	fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${let}&lon=${lng}&appid=${API_KEY}&units=metric`).then(function(response){
 		return response.json()	
 	}).then(function(json){
-		console.log(json);
 		const tempMin = json.main.temp_min;
 		const tempMax = json.main.temp_max;
 		const place = json.name;
