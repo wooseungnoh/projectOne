@@ -13,7 +13,7 @@ function getWeather(let, lng){
 		const tempMin = json.main.temp_min;
 		const tempMax = json.main.temp_max;
 		const place = json.name;
-        	const weathervalue = json.weather[0].main;
+        const weathervalue = json.weather[0].main;
 		weatherPlace.innerText = place+" "+"/";
 		weatherMain.innerText = weathervalue+" "+"/";
 		weatherMaxtemp.innerText = tempMax+"º";
@@ -29,17 +29,18 @@ function handleGeoSucces(position){
 	const latitude = position.coords.latitude;
 	const longitude = position.coords.longitude;
 	const coordsObj = {
-		latitude,
-		longitude
+		latitude  : latitude,
+		longitude : longitude
 	};
+    
 	saveCoords(coordsObj);
 	getWeather(latitude, longitude);
 }
 
 function handleGeoError(){
-	weatherPlace.innerText = `알수없는위치 /`;
-	weatherMaxtemp.innerText = `최고º`;
-	weatherMintemp.innerText = `최저º`;
+	weatherPlace.innerText = "알수없는위치 /";
+	weatherMaxtemp.innerText = "최고º";
+	weatherMintemp.innerText = "최저º";
 }
 
 function askForCoords(){
