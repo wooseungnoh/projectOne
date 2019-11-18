@@ -1,80 +1,77 @@
-const container = document.getElementById('js-form'),
+"use strict";
+
+var container = document.getElementById('js-form'),
     input = container.querySelector('input'),
     title = document.querySelector('h4');
 removeBtn = document.querySelector('.removebtn');
-
-const USER_LS = 'currentUser',
-    SHOWING = 'showing'
-
-
-let theName = [];
+var USER_LS = 'currentUser',
+    SHOWING = 'showing';
+var theName = [];
 
 function saveName() {
-    localStorage.setItem(USER_LS, JSON.stringify(theName));
+  localStorage.setItem(USER_LS, JSON.stringify(theName));
 }
 
 function handle(event) {
-    event.preventDefault();
-    const currentValue = input.value;
-    paint(currentValue);
+  event.preventDefault();
+  var currentValue = input.value;
+  paint(currentValue);
 }
 
 function askName() {
-    container.classList.add(SHOWING);
-    container.addEventListener('submit', handle);
+  container.classList.add(SHOWING);
+  container.addEventListener('submit', handle);
 }
 
 function remove(event) {
-	const naSpan = document.getElementById("1a");
-	title.removeChild(naSpan);
-	title.classList.remove(SHOWING);
-	removeBtn.classList.remove(SHOWING);
-	container.classList.add(SHOWING);
-	localStorage.removeItem(USER_LS);
-	theName.shift();
-	location.reload();
+  var naSpan = document.getElementById("1a");
+  title.removeChild(naSpan);
+  title.classList.remove(SHOWING);
+  removeBtn.classList.remove(SHOWING);
+  container.classList.add(SHOWING);
+  localStorage.removeItem(USER_LS);
+  theName.shift();
+  location.reload();
 }
 
 function paint(text) {
-    const currentValue = text
-    const nameSpan = document.createElement("span");
-    container.classList.remove(SHOWING);
-    title.classList.add(SHOWING);
-    removeBtn.classList.add(SHOWING);
-
-    nameSpan.innerText = `안녕하세요 ${text} 님`
-    const newName = theName.length + 1 + "a";
-    nameSpan.id = newName;
-    const nameValue = {
-        text: currentValue,
-        id: newName
-    };
-    theName.push(nameValue);
-    saveName();
-
-    title.appendChild(nameSpan);
-
-
-    removeBtn.addEventListener('click', remove);
+  var currentValue = text;
+  var nameSpan = document.createElement("span");
+  container.classList.remove(SHOWING);
+  title.classList.add(SHOWING);
+  removeBtn.classList.add(SHOWING);
+  nameSpan.innerText = "\uC548\uB155\uD558\uC138\uC694 ".concat(text, " \uB2D8");
+  var newName = theName.length + 1 + "a";
+  nameSpan.id = newName;
+  var nameValue = {
+    text: currentValue,
+    id: newName
+  };
+  theName.push(nameValue);
+  saveName();
+  title.appendChild(nameSpan);
+  removeBtn.addEventListener('click', remove);
 }
 
-const getName = localStorage
-
+var getName = localStorage;
 
 function loadName() {
-    const currentUser = localStorage.getItem(USER_LS);
+  var currentUser = localStorage.getItem(USER_LS);
 
-    if (currentUser !== null) {
-        const parsedName = JSON.parse(currentUser);
-   		parsedName.forEach(function(name){
-    	paint(name.text);
+  if (currentUser !== null) {
+    var parsedName = JSON.parse(currentUser);
+    parsedName.forEach(function (name) {
+      paint(name.text);
     });
-    } else {
-        askName();
-    }
-};
+  } else {
+    askName();
+  }
+}
+
+;
 
 function init() {
-    loadName();
+  loadName();
 }
+
 init();
