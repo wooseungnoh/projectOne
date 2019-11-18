@@ -1,5 +1,3 @@
-"use strict";
-
 var container = document.getElementById('js-form'),
     input = container.querySelector('input'),
     title = document.querySelector('h4');
